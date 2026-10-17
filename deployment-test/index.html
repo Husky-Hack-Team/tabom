@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A small end-to-end deployment check for Vercel and Supabase." />
+    <title>Deployment Check</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">Tabom infrastructure test</p>
+        <h1>Is everything connected?</h1>
+        <p class="lede">
+          This page verifies the frontend, the Vercel API layer, and a real Supabase
+          database round trip.
+        </p>
+      </header>
+
+      <section class="checks" aria-label="Deployment checks">
+        <article class="check-card" data-check="frontend">
+          <div class="check-icon" aria-hidden="true">01</div>
+          <div>
+            <div class="check-heading">
+              <h2>Frontend</h2>
+              <span class="badge success">Online</span>
+            </div>
+            <p>If you can see this card, Vercel served the static website.</p>
+            <p class="detail" id="frontend-detail"></p>
+          </div>
+        </article>
+
+        <article class="check-card" data-check="backend">
+          <div class="check-icon" aria-hidden="true">02</div>
+          <div>
+            <div class="check-heading">
+              <h2>Backend API</h2>
+              <span class="badge pending" id="backend-badge">Checking</span>
+            </div>
+            <p>A Vercel Function should answer at <code>/api/health</code>.</p>
+            <p class="detail" id="backend-detail" aria-live="polite">Waiting for a response…</p>
+          </div>
+        </article>
+
+        <article class="check-card" data-check="database">
+          <div class="check-icon" aria-hidden="true">03</div>
+          <div>
+            <div class="check-heading">
+              <h2>Supabase</h2>
+              <span class="badge idle" id="database-badge">Not run</span>
+            </div>
+            <p>The backend creates, reads, and removes one temporary test row.</p>
+            <p class="detail" id="database-detail" aria-live="polite">
+              Run this after adding the Vercel environment variables and Supabase table.
+            </p>
+            <button id="database-button" type="button">Run database test</button>
+          </div>
+        </article>
+      </section>
+
+      <footer>
+        <span class="pulse" aria-hidden="true"></span>
+        <span>No test data is kept after a successful run.</span>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,233 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #07110f;
+  color: #effcf7;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 5%, rgba(48, 207, 148, 0.16), transparent 34rem),
+    linear-gradient(145deg, #07110f 0%, #0b1714 55%, #07110f 100%);
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0.2;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.shell {
+  position: relative;
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 72px 0 36px;
+}
+
+.hero {
+  max-width: 720px;
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #51e4aa;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 650px;
+  margin: 0;
+  font-size: clamp(2.7rem, 8vw, 5.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+}
+
+.lede {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: #a8bdb6;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.checks {
+  display: grid;
+  gap: 12px;
+}
+
+.check-card {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 18px;
+  padding: 24px;
+  border: 1px solid rgba(185, 255, 226, 0.12);
+  border-radius: 18px;
+  background: rgba(14, 31, 26, 0.76);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(14px);
+}
+
+.check-icon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgba(81, 228, 170, 0.28);
+  border-radius: 14px;
+  color: #78efbf;
+  background: rgba(81, 228, 170, 0.08);
+  font: 700 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.check-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h2 {
+  margin: 1px 0 8px;
+  font-size: 1.18rem;
+  letter-spacing: -0.02em;
+}
+
+.check-card p {
+  margin: 0;
+  color: #9fb4ad;
+  line-height: 1.55;
+}
+
+.check-card .detail {
+  min-height: 1.5em;
+  margin-top: 8px;
+  color: #d9eee6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+}
+
+code {
+  color: #78efbf;
+  font-size: 0.88em;
+}
+
+.badge {
+  flex: none;
+  padding: 6px 9px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.badge.success {
+  color: #66eab5;
+  background: rgba(47, 211, 145, 0.08);
+}
+
+.badge.pending {
+  color: #f6cf74;
+  background: rgba(246, 207, 116, 0.08);
+}
+
+.badge.error {
+  color: #ff8e8e;
+  background: rgba(255, 96, 96, 0.08);
+}
+
+.badge.idle {
+  color: #94a7a0;
+  background: rgba(148, 167, 160, 0.08);
+}
+
+button {
+  margin-top: 16px;
+  padding: 11px 15px;
+  border: 0;
+  border-radius: 10px;
+  color: #062016;
+  background: #62e8b3;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: #82f4c7;
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(130, 244, 199, 0.35);
+  outline-offset: 3px;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  transform: none;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 24px 4px 0;
+  color: #789088;
+  font-size: 0.78rem;
+}
+
+.pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #51e4aa;
+  box-shadow: 0 0 14px #51e4aa;
+}
+
+@media (max-width: 560px) {
+  .shell {
+    padding-top: 46px;
+  }
+
+  .check-card {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .check-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
